@@ -1,0 +1,73 @@
+boolean boolUseCheckeredFloor = true; 
+float offSetZ = 0;
+ 
+// ===============================================================
+// program: Main parts 
+ 
+void setup() {
+  size(600, 480, OPENGL);
+}
+ 
+void draw() {
+  background(0);
+  Floor();
+  offSetZ++;
+}
+ 
+ 
+// ====================================================
+// tab Floor (and Walls)
+// Floor: CheckeredFloor 
+ 
+void Floor () {
+  // two ways : 
+  if (boolUseCheckeredFloor) {
+    CheckeredFloor() ;
+    // TheWallsCheckeredFloor ();
+  }
+  else
+  {
+    //    FullFloor();
+    //    TheWallsFullFloor ();
+  }
+}
+ 
+//----------------------------------------------------------------------------
+ 
+void CheckeredFloor() {
+ 
+  noStroke();
+//  stroke(255);
+// noFill();
+  for (int i = 0; i < 20; i = i+1) {
+    for (int j = 0; j < 20; j = j+1) {
+ 
+      // % is modulo, meaning rest of division 
+      if (i%2 == 0) { 
+        if (j%2 == 0) { 
+          fill (255, 0, 0);
+        }
+        else
+        {
+          fill ( 103 );
+        }
+      }  
+      else {
+        if (j%2 == 0) { 
+          fill ( 103 );
+        }
+        else
+        {
+          fill (255, 0, 0);
+        }
+      } // if
+ 
+      pushMatrix();
+      translate ( 80*i, 560, 80*j-1500 );//+ offSetZ );
+      box ( 80, 7, 80);  // one cell / tile 
+      popMatrix();
+    } // for
+  } // for
+} // function 
+//
+

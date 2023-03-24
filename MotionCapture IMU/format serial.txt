@@ -1,0 +1,22 @@
+//UART
+char START_BYTE = '*'; //three characters used for Serial communication
+char DELIMITER = ',';
+char END_BYTE = '#';
+
+void send_to_processing()
+{
+   // send packet to PROCESSING
+          Serial.write(START_BYTE);Serial.print(DELIMITER);
+          
+          Serial.print(Sensor_depan[0]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[1]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[2]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[3]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[4]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[5]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[6]);Serial.print(DELIMITER);//hasil sensor
+          Serial.print(Sensor_depan[7]);Serial.print(DELIMITER);//hasil sensor
+                   
+          Serial.write(END_BYTE);Serial.println();//send a carriage return
+
+}
